@@ -1,0 +1,10 @@
+.Image{
+    width:30px;
+    height: auto;
+}
+
+.flex{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
