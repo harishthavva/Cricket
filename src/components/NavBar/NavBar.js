@@ -6,6 +6,7 @@ import "./style.css"
 export default function NavBar() {
     return (
        <>
+       
           <Navbar bg="primary" variant="dark"  sticky="top">
               <Container>
               <Navbar.Brand><img src="https://img.icons8.com/emoji/48/000000/cricket-game-emoji.png" id="Image" alt="Image Logo"/></Navbar.Brand>

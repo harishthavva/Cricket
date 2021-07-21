@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import NavBar from "./components/NavBar/NavBar";
 import Card from './components/Card/Card'
+import Slides from "./components/Slides/Slides"
 import tachyons from "tachyons"
 
 export default class App extends Component {
@@ -8,27 +9,26 @@ export default class App extends Component {
     constructor(){
         super()
         this.state={
-            Matches:[{}]
+            Matches:[]
         }
     }
 
-   async componentDidMount(){
-    const data = await fetch("https://api.api-cricket.com/?method=get_livescore&APIkey=7486d0c933de61490887d2e9908b86b35638c54c40750cbed67823a533772c40")
+   async componentWillMount(){
+    const data = await fetch("https://cricapi.com/api/matches/pboAl5jFePUG0BnpXZFjB9s6kd32")
     const result = await data.json()
-    this.setState({Matches:result.result})
-    console.log(result.result)
+    this.setState({Matches:result.matches})
+    console.log(result)
 }
 
     render() {
         return (
             <div >
                <NavBar/><br></br>
-                <marquee direction="right"><h3>Welcome to the Harish Cricket Score App !!!!</h3></marquee>
-                {
-                    this.state.Matches.map(item =>{
-                        return <Card match={item}/>
-                    })
-                }
+                <marquee direction="right"><h3 style={{color:"white"}}>Welcome to the Harish Cricket Score App !!!!</h3></marquee>
+                <Slides/>
+                {this.state.Matches.map(item =>{
+                  return <Card key={item.unique_id} match={item} />
+                })}
             </div>
         )
     }
