@@ -1,11 +1,11 @@
-import React from 'react'
-
-export default function MatchDetails({matchInfo}) {
-    console.log(matchInfo)
+import React,{useState} from 'react'
+import tachyons from "tachyons"
+export default function MatchDetails(props) {
+    const api = fetch("https://cricapi.com/api/matches/pboAl5jFePUG0BnpXZFjB9s6kd32").then(res=>res.json()).then(data=>console.log(data.matches))
+    console.log(props.match.params)
     return (
         <div>
-            <h2>Match is conducted in the {`${matchInfo.country_name}`} country & the name of the Legaue is {`${matchInfo.league_name}`}</h2>
-            <h3>The Home Team of this match is {`${matchInfo.event_home_team}`}</h3>
+            <h1 className="tc" style={{color:"white"}}>Hello I'm from India</h1>
         </div>
     )
 }

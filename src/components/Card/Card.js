@@ -2,15 +2,7 @@ import React,{useState} from 'react'
 import './style.css'
 import tachyons from "tachyons"
 import MatchDetails from '../MatchDeatails/MatchDetails'
-
-const clickFnc = (matchInfo)=>{
-    return (
-        <div>
-            {console.log("Hi") }
-        </div>
-)
-}
-
+import {Link} from "react-router-dom"
 
 export default function Card({match}) {
     return (
@@ -30,9 +22,7 @@ export default function Card({match}) {
                         </div>
                     </div>
                   {match.matchStarted ? typeof match.winner_team =="undefined" ? <h6 className="tc">Sorry, Scores are not updated !!!!</h6> :  <h6 className="tc">Match winner :- <span><h5>{`${match.winner_team}`}</h5></span> </h6> : <h6 className="tc"> Match has not yet started !!!!</h6> }
-                    <button className="bg-light-blue"  onClick={()=>{
-                        clickFnc(match)
-                    }}>Learn More Details ....</button>
+                <Link to={`/details/${match.unique_id}`}><button>Learn More Details ...</button></Link>
                 </div>
         </div>
     )
